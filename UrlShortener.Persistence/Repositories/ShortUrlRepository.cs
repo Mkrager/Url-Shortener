@@ -10,6 +10,11 @@ namespace UrlShortener.Persistence.Repositories
         {
         }
 
+        public Task<ShortUrl?> GetShortUrlByCodeAsync(string code)
+        {
+            return _dbContext.ShortUrls.FirstOrDefaultAsync(r => r.ShortCode == code);
+        }
+
         public async Task<bool> IsUrlUniqueAsync(string originalUrl)
         {
             var matches = await _dbContext.ShortUrls.AnyAsync(x => x.OriginalUrl.Equals(originalUrl));

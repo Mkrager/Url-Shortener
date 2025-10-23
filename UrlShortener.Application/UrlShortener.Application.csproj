@@ -18,9 +18,5 @@
 	<ItemGroup>
 		<ProjectReference Include="..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="Contracts\Infrastructure\" />
-	</ItemGroup>
 
 </Project>

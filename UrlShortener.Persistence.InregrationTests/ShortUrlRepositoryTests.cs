@@ -43,5 +43,24 @@ namespace UrlShortener.Persistence.InregrationTests
             var result = await _repository.IsUrlUniqueAsync("testUrl");
             Assert.False(result);
         }
+
+        [Fact]
+        public async Task GetShortUrlByCode_WhenCodeExsist_ReturnsShortUrl()
+        {
+            var shortCode = "qwe234";
+            var shortUrl = new ShortUrl
+            {
+                Id = Guid.NewGuid(),
+                ShortCode = shortCode
+            };
+
+            _dbContext.ShortUrls.Add(shortUrl);
+            await _dbContext.SaveChangesAsync();
+
+            var result = await _repository.GetShortUrlByCodeAsync(shortCode);
+
+            Assert.NotNull(result);
+            Assert.Equal(shortCode, result.ShortCode);
+        }
     }
 }
