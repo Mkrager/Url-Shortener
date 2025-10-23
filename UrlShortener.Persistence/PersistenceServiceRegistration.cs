@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UrlShortener.Application.Contracts.Persistance;
 using UrlShortener.Persistence.Interceptors;
+using UrlShortener.Persistence.Repositories;
 
 namespace UrlShortener.Persistence
 {
