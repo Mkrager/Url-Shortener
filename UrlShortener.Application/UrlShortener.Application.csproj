@@ -22,8 +22,6 @@
 	<ItemGroup>
 	  <Folder Include="Contracts\Identity\" />
 	  <Folder Include="Contracts\Infrastructure\" />
-	  <Folder Include="Features\ShortUrls\Commands\" />
-	  <Folder Include="Features\ShortUrls\Queries\" />
 	</ItemGroup>
 
 </Project>
