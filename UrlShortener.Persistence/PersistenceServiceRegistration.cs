@@ -17,6 +17,7 @@ namespace UrlShortener.Persistence
             ("UrlShortenerConnectionString")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IShortUrlRepository, ShortUrlRepository>();
 
             services.AddScoped<AuditableEntitySaveChangesInterceptor>();
 
