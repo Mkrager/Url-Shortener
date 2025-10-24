@@ -20,6 +20,8 @@ namespace UrlShortener.Application.Features.ShortUrls.Commands.CreateShortUrl
         }
         public async Task<Guid> Handle(CreateShortUrlCommand request, CancellationToken cancellationToken)
         {
+            request.OriginalUrl = request.OriginalUrl.Trim();
+
             var shortUrl = _mapper.Map<ShortUrl>(request);
 
             string code;

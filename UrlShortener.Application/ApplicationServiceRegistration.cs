@@ -3,6 +3,8 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using UrlShortener.Application.Behaviours;
+using UrlShortener.Application.Contracts.Application;
+using UrlShortener.Application.Services;
 
 namespace UrlShortener.Application
 {
@@ -13,6 +15,8 @@ namespace UrlShortener.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            services.AddScoped<IPermissionService, PermissionService>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
