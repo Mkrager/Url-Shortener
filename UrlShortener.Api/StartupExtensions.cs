@@ -31,7 +31,7 @@ namespace UrlShortener.Api
             {
                 options.AddPolicy("Open", policy =>
                 {
-                    policy.WithOrigins("")
+                    policy.WithOrigins("https://localhost:7018")
                     .AllowAnyHeader()
                     .AllowAnyMethod();
                 });
