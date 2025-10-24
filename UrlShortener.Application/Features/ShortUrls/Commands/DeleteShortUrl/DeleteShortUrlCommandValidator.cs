@@ -17,7 +17,7 @@ namespace UrlShortener.Application.Features.ShortUrls.Commands.DeleteShortUrl
 
             RuleFor(e => e)
                 .MustAsync(HasAccess)
-                .WithMessage("An category with the same name already exists.");
+                .WithMessage("User don't have access.");
 
         }
 

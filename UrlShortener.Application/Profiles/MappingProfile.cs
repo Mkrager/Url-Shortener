@@ -10,9 +10,9 @@ namespace UrlShortener.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<ShortUrl, CreateShortUrlCommand>();
-            CreateMap<ShortUrl, ShortUrlListVm>();
-            CreateMap<ShortUrl, ShortUrlDetailVm>();
+            CreateMap<ShortUrl, CreateShortUrlCommand>().ReverseMap();
+            CreateMap<ShortUrl, ShortUrlListVm>().ReverseMap();
+            CreateMap<ShortUrl, ShortUrlDetailVm>().ReverseMap();
         }
     }
 }

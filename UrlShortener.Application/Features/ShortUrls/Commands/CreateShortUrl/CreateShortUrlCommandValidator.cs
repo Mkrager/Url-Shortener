@@ -11,6 +11,9 @@ namespace UrlShortener.Application.Features.ShortUrls.Commands.CreateShortUrl
             _shortUrlRepository = shortUrlRepository;
 
             RuleFor(e => e.OriginalUrl)
+                .NotEmpty().WithMessage("Original url must not be empty.");
+
+            RuleFor(e => e.OriginalUrl)
                 .MustAsync(OriginalUrlUnique)
                 .WithMessage("The same url already exists.");
         }
