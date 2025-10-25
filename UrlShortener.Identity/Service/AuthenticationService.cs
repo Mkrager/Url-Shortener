@@ -106,7 +106,6 @@ namespace UrlShortener.Identity.Service
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim("uid", user.Id),
-                new Claim("EnabledTwoFactorAuth", user.TwoFactorEnabled.ToString())
             }
             .Union(userClaims)
             .Union(roleClaims);

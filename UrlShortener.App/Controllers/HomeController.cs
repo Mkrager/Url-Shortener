@@ -1,32 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using UrlShortener.App.Contracts;
 using UrlShortener.App.Models;
 
 namespace UrlShortener.App.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IShortUrlDataService _shortUrlDataService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IShortUrlDataService shortUrlDataService)
         {
-            _logger = logger;
+            _shortUrlDataService = shortUrlDataService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var result = await _shortUrlDataService.GetAllShortUrls();
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
