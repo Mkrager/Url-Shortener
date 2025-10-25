@@ -17,7 +17,7 @@ namespace UrlSortener.Application.UnitTests.ShortUrls.Queries
         }
 
         [Fact]
-        public async Task GetShortUrlDetails_ReturnsCorrectCourseDetails()
+        public async Task GetShortUrlDetails_ReturnsCorrectShortUrlDetails()
         {
             var handler = new GetShortUrlDetailQueryHandler(_mockShortUrlRepository.Object, _mapper);
 

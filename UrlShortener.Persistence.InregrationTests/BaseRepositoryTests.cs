@@ -18,7 +18,7 @@ namespace UrlShortener.Persistence.InregrationTests
         public BaseRepositoryTests()
         {
             var options = new DbContextOptionsBuilder<UrlShortenerDbContext>()
-                .UseInMemoryDatabase(databaseName: "UrlShortener")
+                .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
 
             _currentUserId = "00000000-0000-0000-0000-000000000000";

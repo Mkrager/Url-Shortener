@@ -1,9 +1,7 @@
 ﻿using Moq;
 using Shouldly;
 using UrlShortener.Application.Contracts.Persistance;
-using UrlShortener.Application.Features.ShortUrls.Queries.GetShortlUrlDetails;
 using UrlShortener.Application.Features.ShortUrls.Queries.GetShortUrlsList;
-using UrlShortener.Domain.Entities;
 using UrlSortener.Application.UnitTests.Base;
 using UrlSortener.Application.UnitTests.Mocks;
 
@@ -19,7 +17,7 @@ namespace UrlSortener.Application.UnitTests.ShortUrls.Queries
         }
 
         [Fact]
-        public async Task GetShortUrlList_ReturnsListOfCourses()
+        public async Task GetShortUrlList_ReturnsListOfShortUrls()
         {
             var handler = new GetShortUrlListQueryHandler(_mapper, _mockShortUrlRepository.Object);
 

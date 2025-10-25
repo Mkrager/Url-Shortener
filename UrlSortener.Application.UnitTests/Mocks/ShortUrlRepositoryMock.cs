@@ -14,6 +14,7 @@ namespace UrlSortener.Application.UnitTests.Mocks
                 { 
                     Id = Guid.Parse("3f2a3a3e-27c9-4b65-bfb4-2b1e3d4b54ee"),
                     OriginalUrl = "TestOriginalUrl1",
+                    ShortCode = "123456"
                 },
                 new ShortUrl 
                 {
