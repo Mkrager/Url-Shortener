@@ -427,3 +427,17 @@ header {
         background-color: #e0a800;
         color: white;
     }
+
+.form-input {
+    resize: none;
+}
+
+.btn-about {
+    background-color: #3498DB;
+    color: white;
+    text-decoration: none;
+}
+
+    .btn-about:hover {
+        background-color: #2C81C2;
+    }

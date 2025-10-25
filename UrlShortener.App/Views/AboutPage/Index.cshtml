@@ -1,0 +1,32 @@
+﻿@model AboutPageViewModel
+
+<div class="container">
+    <h2>About URL Shortener</h2>
+    <p style="white-space:pre-line">@Model.Content</p>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <button class="btn btn-edit" onclick="openAboutModal()">Edit</button>
+    }
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div id="aboutModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <span class="close-modal" onclick="closeAboutModal()">&times;</span>
+            <h2>Edit About Page</h2>
+
+            <form id="aboutForm" method="post">
+                <textarea name="Content" class="form-input" rows="10">@Model.Content</textarea>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn btn-cancel" onclick="closeAboutModal()">Cancel</button>
+                    <button type="submit" class="btn btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<script src="~/js/editAboutPage.js"></script>

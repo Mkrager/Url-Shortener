@@ -13,7 +13,7 @@ namespace UrlShortener.Api.Controllers
 
     public class AboutPageController(IMediator mediator) : Controller
     {
-        [HttpGet("{id}", Name = "GetAboutPage")] 
+        [HttpGet(Name = "GetAboutPage")] 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ShortUrlDetailVm>> GetAboutPage()

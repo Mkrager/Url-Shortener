@@ -13,6 +13,8 @@
             <h1>Url Shortener</h1>
         </a>
         <div class="header-buttons">
+            <a asp-controller="AboutPage" asp-action="Index" class="btn btn-about">Aboput page</a>
+
             @if (!User.Identity.IsAuthenticated)
             {
                 <a asp-controller="Authentication" asp-action="Login" class="btn btn-login">Login</a>

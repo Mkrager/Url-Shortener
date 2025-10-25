@@ -19,6 +19,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IShortUrlDataService, ShortUrlDataService>();
 builder.Services.AddScoped<ITokenProvider, TokenProvider>();
+builder.Services.AddScoped<IAboutPageDataService, AboutPageDataService>();
 
 builder.Services.AddTransient<AuthHeaderHandler>();
 
