@@ -23,6 +23,15 @@ namespace UrlShortener.App.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize]
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            var result = await _shortUrlDataService.DeleteShortUrl(id);
+            return Json(new { redirectUrl = Url.Action("Index", "Home") });
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> List()
         {

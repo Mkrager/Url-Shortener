@@ -20,6 +20,7 @@ namespace UrlShortener.Application
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UserContextBehavior<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
 
             return services;

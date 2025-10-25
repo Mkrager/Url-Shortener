@@ -23,7 +23,10 @@
                 <th>Original url</th>
                 <th>ShortUrl</th>
                 <th>Created date</th>
-                <th>Actions</th>
+                @if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    <th>Actions</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -37,17 +40,23 @@
                         </a>
                     </td>
                     <td>@shortUrl.CreatedDate.ToString("dd.MM.yyyy")</td>
-                    <td>
-                        <div class="edit-actions">
-                            <button class="btn btn-delete" onclick="deleteShortUrl('@shortUrl.Id')">Delete</button>
-                        </div>
-                    </td>
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <td>
+
+                            <div class="edit-actions">
+                                <button class="btn btn-delete" onclick="deleteShortUrl('@shortUrl.Id')">Delete</button>
+                            </div>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>
     </table>
-
-    <button class="btn btn-save" onclick="openAddUrlModal()">Add url</button>
+    @if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        <button class="btn btn-add" onclick="openAddUrlModal()">Add url</button>
+    }
 </div>
 
 <div id="addUrlModal" class="custom-modal">
@@ -66,3 +75,4 @@
 
 <script src="~/js/modal.js"></script>
 <script src="~/js/addUrl.js"></script>
+<script src="~/js/deleteShortUrl.js"></script>

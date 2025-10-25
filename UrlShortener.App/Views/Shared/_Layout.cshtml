@@ -8,6 +8,20 @@
 </head>
 <body>
 
-    @RenderBody()
+    <header>
+        <h1>Url Shortener</h1>
+        <div class="header-buttons">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <a asp-controller="Authentication" asp-action="Login" class="btn btn-login">Login</a>
+                <a asp-controller="Authentication" asp-action="Register" class="btn btn-register">Register</a>
+            }
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
 </body>
 </html>
