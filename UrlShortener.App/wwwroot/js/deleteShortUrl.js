@@ -16,8 +16,8 @@
                 if (row) row.remove();
             }
         } else {
-            const errorText = await response.text();
-            alert('Error: ' + errorText);
+            const error = await postResponse.json();
+            alert(error.error);
         }
     } catch (err) {
         console.error('Error:', err);

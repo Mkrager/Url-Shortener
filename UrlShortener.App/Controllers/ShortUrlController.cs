@@ -21,9 +21,9 @@ namespace UrlShortener.App.Controllers
             var result = await _shortUrlDataService.CreateShortUrl(shortUrlViewModel);
 
             if (!result.IsSuccess)
-                TempData["ErrorMessage"] = result.ErrorText;
+                return BadRequest(new { error = result.ErrorText });
 
-            return RedirectToAction("Index", "Home");
+            return Ok(new { success = true });
         }
 
         [Authorize]
@@ -33,9 +33,9 @@ namespace UrlShortener.App.Controllers
             var result = await _shortUrlDataService.DeleteShortUrl(id);
 
             if (!result.IsSuccess)
-                TempData["ErrorMessage"] = result.ErrorText;
+                return BadRequest(new { error = result.ErrorText });
 
-            return Json(new { redirectUrl = Url.Action("Index", "Home") });
+            return Ok(new { success = true });
         }
 
 

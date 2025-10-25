@@ -51,8 +51,8 @@
             }
 
         } else {
-            const error = await postResponse.text();
-            alert(error);
+            const error = await postResponse.json();
+            alert(error.error);
         }
     } catch (err) {
         console.error(err);
