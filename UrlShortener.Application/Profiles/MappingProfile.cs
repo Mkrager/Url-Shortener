@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using UrlShortener.Application.DTOs.Authentication;
+using UrlShortener.Application.Features.AboutPages.Commands.UpdateAboutPage;
+using UrlShortener.Application.Features.AboutPages.Queries.GetAboutPage;
 using UrlShortener.Application.Features.Account.Commands.Registration;
 using UrlShortener.Application.Features.Account.Queries.Authentication;
 using UrlShortener.Application.Features.ShortUrls.Commands.CreateShortUrl;
@@ -16,6 +18,9 @@ namespace UrlShortener.Application.Profiles
             CreateMap<ShortUrl, CreateShortUrlCommand>().ReverseMap();
             CreateMap<ShortUrl, ShortUrlListVm>().ReverseMap();
             CreateMap<ShortUrl, ShortUrlDetailVm>().ReverseMap();
+
+            CreateMap<AboutPage, UpdateAboutPageCommand>().ReverseMap();
+            CreateMap<AboutPage, AboutPageVm>().ReverseMap();
 
             CreateMap<RegistrationRequest, RegistrationCommand>().ReverseMap();
             CreateMap<AuthenticationRequest, AuthenticationQuery>().ReverseMap();
