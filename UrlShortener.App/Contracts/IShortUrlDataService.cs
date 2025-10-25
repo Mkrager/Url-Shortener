@@ -8,6 +8,7 @@ namespace UrlShortener.App.Contracts
         Task<ApiResponse<Guid>> CreateShortUrl(ShortUrlViewModel shortUrlViewModel);
         Task<ApiResponse> DeleteShortUrl(Guid id);
         Task<ApiResponse<ShortUrlViewModel>> GetShortUrlById(Guid id);
+        Task<ApiResponse<string>> GetShortUrlByCode(string code);
         Task<ApiResponse<List<ShortUrlViewModel>>> GetAllShortUrls();
     }
 }

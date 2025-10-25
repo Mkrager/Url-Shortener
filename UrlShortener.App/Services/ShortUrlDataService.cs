@@ -36,6 +36,12 @@ namespace UrlShortener.App.Services
             return await HandleResponse<List<ShortUrlViewModel>>(response);
         }
 
+        public async Task<ApiResponse<string>> GetShortUrlByCode(string code)
+        {
+            var response = await _httpClient.GetAsync($"shortUrl/by-code/{code}");
+            return await HandleResponse<string>(response);
+        }
+
         public async Task<ApiResponse<ShortUrlViewModel>> GetShortUrlById(Guid id)
         {
             var response = await _httpClient.GetAsync($"shortUrl/{id}");

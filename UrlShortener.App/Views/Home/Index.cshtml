@@ -1,1 +1,68 @@
-﻿
+﻿@using UrlShortener.App.ViewModels
+@model List<ShortUrlViewModel>
+
+<div class="container">
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <table id="shortUrlTable" class="contact-table">
+        <thead>
+            <tr>
+                <th>Original url</th>
+                <th>ShortUrl</th>
+                <th>Created date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var shortUrl in Model)
+            {
+                <tr data-id="@shortUrl.Id">
+                    <td class="name-cell" title="@shortUrl.OriginalUrl">@shortUrl.OriginalUrl</td>
+                    <td>
+                        <a href="@($"https://localhost:7018/shortUrl/s/{shortUrl.ShortCode}")" target="_blank">
+                            @($"https://localhost:7018/shortUrl/s/{shortUrl.ShortCode}")
+                        </a>
+                    </td>
+                    <td>@shortUrl.CreatedDate.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <div class="edit-actions">
+                            <button class="btn btn-delete" onclick="deleteShortUrl('@shortUrl.Id')">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-save" onclick="openAddUrlModal()">Add url</button>
+</div>
+
+<div id="addUrlModal" class="custom-modal">
+    <div class="custom-modal-content">
+        <span class="close-modal" onclick="closeAddUrlModal()">&times;</span>
+        <h2>Add New URL</h2>
+        <form id="addUrlForm" method="post">
+            <input type="text" name="OriginalUrl" class="form-input" placeholder="Enter original URL" required />
+            <div class="modal-buttons">
+                <button type="button" class="btn btn-cancel" onclick="closeAddUrlModal()">Cancel</button>
+                <button type="submit" class="btn btn-save">Add URL</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="~/js/modal.js"></script>
+<script src="~/js/addUrl.js"></script>

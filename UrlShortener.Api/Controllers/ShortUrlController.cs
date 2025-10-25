@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using UrlShortener.Application.Features.ShortUrls.Commands.CreateShortUrl;
 using UrlShortener.Application.Features.ShortUrls.Commands.DeleteShortUrl;
 using UrlShortener.Application.Features.ShortUrls.Queries.GetShortlUrlDetails;
+using UrlShortener.Application.Features.ShortUrls.Queries.GetShortUrlByCode;
 using UrlShortener.Application.Features.ShortUrls.Queries.GetShortUrlsList;
 
 namespace UrlShortener.Api.Controllers
@@ -41,8 +42,17 @@ namespace UrlShortener.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ShortUrlDetailVm>> GetShortUrlById(Guid id)
         {
-            var getCourseDetailQuery = new GetShortUrlDetailQuery() { Id = id };
-            return Ok(await mediator.Send(getCourseDetailQuery));
+            var getShortUrlDetailQuery = new GetShortUrlDetailQuery() { Id = id };
+            return Ok(await mediator.Send(getShortUrlDetailQuery));
+        }
+
+        [HttpGet("by-code/{code}", Name = "GetShortUrlByCode")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<ShortUrlDetailVm>> GetShortUrlByCode(string code)
+        {
+            var getShortUrlByCodeQuery = new GetShortUrlByCodeQuery() { Code = code };
+            return Ok(await mediator.Send(getShortUrlByCodeQuery));
         }
 
         [HttpGet(Name = "GetAllShortUrls")]

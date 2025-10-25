@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 using UrlShortener.App.Contracts;
-using UrlShortener.App.Models;
 
 namespace UrlShortener.App.Controllers
 {
@@ -17,7 +15,7 @@ namespace UrlShortener.App.Controllers
         public async Task<IActionResult> Index()
         {
             var result = await _shortUrlDataService.GetAllShortUrls();
-            return View();
+            return View(result.Data);
         }
     }
 }
