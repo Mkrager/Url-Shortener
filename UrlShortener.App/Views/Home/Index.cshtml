@@ -17,12 +17,11 @@
         </div>
     }
 
-    <table id="shortUrlTable" class="contact-table">
+    <table id="shortUrlTable" class="shorturl-table">
         <thead>
             <tr>
-                <th>Original url</th>
-                <th>ShortUrl</th>
-                <th>Created date</th>
+                <th>Original URL</th>
+                <th>Short URL</th>
                 @if (User.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <th>Actions</th>
@@ -39,13 +38,15 @@
                             @($"https://localhost:7018/shortUrl/s/{shortUrl.ShortCode}")
                         </a>
                     </td>
-                    <td>@shortUrl.CreatedDate.ToString("dd.MM.yyyy")</td>
                     @if (User.Identity != null && User.Identity.IsAuthenticated)
                     {
                         <td>
-
                             <div class="edit-actions">
-                                <button class="btn btn-delete" onclick="deleteShortUrl('@shortUrl.Id')">Delete</button>
+                                @if (shortUrl.CreatedBy == User.FindFirst("uid")?.Value
+                               || User.IsInRole("Admin"))
+                                {
+                                    <button class="btn btn-delete" onclick="deleteShortUrl('@shortUrl.Id')">Delete</button>
+                                }
                             </div>
                         </td>
                     }
@@ -76,3 +77,8 @@
 <script src="~/js/modal.js"></script>
 <script src="~/js/addUrl.js"></script>
 <script src="~/js/deleteShortUrl.js"></script>
+
+<script>
+    const currentUserId = '@User.FindFirst("uid")?.Value';
+    const isAdmin = @User.IsInRole("Admin").ToString().ToLower();
+</script>

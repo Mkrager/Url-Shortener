@@ -24,10 +24,13 @@
 
                 urls.forEach(shortUrl => {
                     const tr = document.createElement('tr');
-
-                    console.log(shortUrl);
-
                     tr.setAttribute('data-id', shortUrl.id);
+
+                    let deleteButton = '';
+                    if (shortUrl.createdBy == currentUserId || isAdmin) {
+                        deleteButton = `<button class="btn btn-delete" onclick="deleteShortUrl('${shortUrl.id}')">Delete</button>`;
+                    }
+
                     tr.innerHTML = `
                         <td class="name-cell" title="${shortUrl.originalUrl}">${shortUrl.originalUrl}</td>
                         <td>
@@ -35,10 +38,9 @@
                                 https://localhost:7018/shortUrl/s/${shortUrl.shortCode}
                             </a>
                         </td>
-                        <td>${new Date(shortUrl.createdDate).toLocaleDateString()}</td>
                         <td>
                             <div class="edit-actions">
-                                <button class="btn btn-delete" onclick="deleteShortUrl('${shortUrl.id}')">Delete</button>
+                                ${deleteButton}
                             </div>
                         </td>
                     `;

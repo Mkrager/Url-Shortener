@@ -37,7 +37,7 @@ namespace UrlShortener.App.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View(new AuthenticateRequest());
+            return View();
         }
 
         [HttpPost]
@@ -56,7 +56,7 @@ namespace UrlShortener.App.Controllers
 
         public IActionResult Register()
         {
-            return View(new RegistrationRequest());
+            return View();
         }
 
         [HttpPost]

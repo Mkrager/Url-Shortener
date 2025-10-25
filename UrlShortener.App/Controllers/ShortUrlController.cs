@@ -15,7 +15,7 @@ namespace UrlShortener.App.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpPost("create")]
         public async Task<IActionResult> Create(ShortUrlViewModel shortUrlViewModel)
         {
             var result = await _shortUrlDataService.CreateShortUrl(shortUrlViewModel);
@@ -32,7 +32,7 @@ namespace UrlShortener.App.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("list")]
         public async Task<IActionResult> List()
         {
             var result = await _shortUrlDataService.GetAllShortUrls();

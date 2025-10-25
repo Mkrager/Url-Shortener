@@ -140,59 +140,13 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.upload-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-    .upload-form input[type="file"] {
-        padding: 6px;
-    }
-
-    .upload-form label.btn-upload {
-        cursor: pointer;
-        display: inline-block;
-        background-color: #00268a;
-        color: white;
-        padding: 7px 14px;
-        border-radius: 6px;
-        transition: background-color 0.3s;
-    }
-
-        .upload-form label.btn-upload:hover {
-            background-color: #001f6e;
-        }
-
-    .upload-form .file-name {
-        font-size: 0.9em;
-        color: #333;
-        font-style: italic;
-        margin-left: 10px;
-    }
-
-.btn-upload {
-    background-color: #00268a;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-    .btn-upload:hover {
-        background-color: #001f6e;
-    }
-
-.contact-table {
+.shorturl-table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
 }
 
-    .contact-table th, .contact-table td {
+    .shorturl-table th, .shorturl-table td {
         padding: 12px 15px;
         text-align: left;
         overflow: hidden;
@@ -200,26 +154,26 @@ body {
         white-space: nowrap;
     }
 
-    .contact-table thead {
+    .shorturl-table thead {
         background-color: #00268a;
         color: white;
         border-radius: 12px;
     }
 
-    .contact-table td button {
+    .shorturl-table td button {
         display: inline-block;
         margin-right: 20px;
     }
 
-    .contact-table tbody tr {
+    .shorturl-table tbody tr {
         border-bottom: 1px solid #ddd;
     }
 
-        .contact-table tbody tr:nth-child(even) {
+        .shorturl-table tbody tr:nth-child(even) {
             background-color: #f9f9f9;
         }
 
-        .contact-table tbody tr:hover {
+        .shorturl-table tbody tr:hover {
             background-color: #f1f1f1;
         }
 
@@ -266,9 +220,9 @@ body {
         background-color: #c82333;
     }
 
-.contact-table input[type="text"],
-.contact-table input[type="date"],
-.contact-table select {
+.shorturl-table input[type="text"],
+.shorturl-table input[type="date"],
+.shorturl-table select {
     padding: 6px 8px;
     border-radius: 6px;
     border: 1px solid #ccc;
@@ -324,8 +278,8 @@ body {
     border: 1px solid #c3e6cb;
 }
 
-.contact-table th:nth-child(1),
-.contact-table td:nth-child(1) {
+.shorturl-table th:nth-child(1),
+.shorturl-table td:nth-child(1) {
     width: 200px;
     max-width: 200px;
     overflow: hidden;
