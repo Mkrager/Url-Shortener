@@ -2,9 +2,9 @@
 
 namespace UrlShortener.Application.Features.AboutPages.Commands.UpdateAboutPage
 {
-    public class UpdateAboutPageCommandValdiator : AbstractValidator<UpdateAboutPageCommand>
+    public class UpdateAboutPageCommandValidator : AbstractValidator<UpdateAboutPageCommand>
     {
-        public UpdateAboutPageCommandValdiator()
+        public UpdateAboutPageCommandValidator()
         {
             RuleFor(r => r.Content)
                 .NotEmpty().WithMessage("Content must not be empty");
