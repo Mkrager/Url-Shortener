@@ -14,17 +14,13 @@ Unlike a standard frontend-heavy app, this project uses **ASP.NET MVC** for both
 
   * ASP.NET MVC (Framework or Core)
   * C#
-  * Entity Framework Core (Code-First approach)
+  * Entity Framework Core
   * MSSQL Database
 
 * **Frontend:**
 
   * Razor Views (MVC)
   * HTML, CSS, JavaScript
-
-* **Testing:**
-
-  * Any framework for unit tests (e.g., xUnit, NUnit) — adding tests is a plus
 
 ---
 
