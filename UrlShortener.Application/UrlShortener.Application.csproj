@@ -18,5 +18,10 @@
 	<ItemGroup>
 		<ProjectReference Include="..\UrlShortener.Domain\UrlShortener.Domain.csproj" />
 	</ItemGroup>
+	
+	<ItemGroup>
+	  <Folder Include="Features\AboutPages\Commands\UpdateaboutPage\" />
+	  <Folder Include="Features\AboutPages\Queries\GetAboutPage\" />
+	</ItemGroup>
 
 </Project>
