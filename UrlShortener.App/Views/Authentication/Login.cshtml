@@ -11,10 +11,10 @@
 
         <form asp-controller="Authentication" asp-action="Login" method="post" id="loginForm">
             <div asp-validation-summary="All" class="error-text"></div>
-            @* @if (Model.ErrorMessage != null) *@
-            @* { *@
-            @*     <p class="error-text">@Model.ErrorMessage</p> *@
-            @* } *@
+            @if (TempData["LoginErrorMessage"] != null)
+            {
+                <p class="error-text">@TempData["LoginErrorMessage"]</p>
+            } 
 
             <div class="form-content">
                 <label asp-for="Email">Email</label>

@@ -20,7 +20,7 @@ namespace UrlShortener.App.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                TempData["LoginErrorMessage"] = "You need to login to continue.";
+                TempData["ErrorMessage"] = "You need to login to continue.";
                 return RedirectToAction("Index", "Home");
             }
 
@@ -51,7 +51,7 @@ namespace UrlShortener.App.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         public IActionResult Register()
@@ -70,7 +70,7 @@ namespace UrlShortener.App.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         [HttpGet]

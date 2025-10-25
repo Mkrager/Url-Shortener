@@ -5,6 +5,18 @@
     font-family: "Arial", sans-serif;
 }
 
+.logo-link {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .logo-link:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+
 body {
     background: #f4f4f9;
     color: #333;

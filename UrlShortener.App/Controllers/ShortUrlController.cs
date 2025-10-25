@@ -11,7 +11,7 @@ namespace UrlShortener.App.Controllers
         private readonly IShortUrlDataService _shortUrlDataService;
         public ShortUrlController(IShortUrlDataService shortUrlDataService)
         {
-            _shortUrlDataService = shortUrlDataService; 
+            _shortUrlDataService = shortUrlDataService;
         }
 
         [Authorize]
@@ -19,6 +19,9 @@ namespace UrlShortener.App.Controllers
         public async Task<IActionResult> Create(ShortUrlViewModel shortUrlViewModel)
         {
             var result = await _shortUrlDataService.CreateShortUrl(shortUrlViewModel);
+
+            if (!result.IsSuccess)
+                TempData["ErrorMessage"] = result.ErrorText;
 
             return RedirectToAction("Index", "Home");
         }
@@ -28,6 +31,10 @@ namespace UrlShortener.App.Controllers
         public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _shortUrlDataService.DeleteShortUrl(id);
+
+            if (!result.IsSuccess)
+                TempData["ErrorMessage"] = result.ErrorText;
+
             return Json(new { redirectUrl = Url.Action("Index", "Home") });
         }
 
